@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_07Lab1.MainPage">
+    <Grid
+        Padding="5"
+        RowSpacing="5"
+        ColumnSpacing="5"
+        RowDefinitions="Auto, Auto, Auto, Auto, Auto, *">
+        <Entry
+            x:Name="newStudent"
+            Placeholder="Enter name"
+            Grid.Row="0"
+            />
+        <Button
+            x:Name="NewButton"
+            Clicked="OnNewButtonClicked"
+            Text="Add Student"
+            Grid.Row="1"
+            />
+        <Label
+            x:Name="statusMessage"
+            Grid.Row="2"
+            />
+        <Button
+            x:Name="GetButton"
+            Clicked="OnGetButtonClicked"
+            Text="Get Section List"
+            Grid.Row="3"
+            />
+        <Button
+            x:Name="DeleteAllButton"
+            Clicked="OnDeleteAllButtonClicked"
+            Text="Delete All Students"
+            Grid.Row="4"
+            BackgroundColor="Red"
+            />
+        <CollectionView
+            x:Name="sectionList"
+            Grid.Row="5">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,2*">
+                        <Label
+                            Text="{Binding Id}"
+                        />
+                        <Label
+                            Grid.Column="1"
+                            Text="{Binding Name}"
+                        />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
